@@ -35,8 +35,26 @@ class MyApp:
        	    self.myContainer1.pack()
        	    self.down = Button(self.myContainer1)
        	    self.down.configure(text="down", background= "green")
-       	    self.down.grid(row=0,column=0)
+       	    self.down.grid(row=4,column=0)
        	    self.down.bind("<Button-1>", self.downClicked)
+       	    
+       	    self.myParent = parent  
+       	    self.myContainer1 = Frame(parent)
+       	    self.myContainer1.pack()
+       	    self.right = Button(self.myContainer1)
+       	    self.right.configure(text="right", background= "green")
+       	    self.right.grid(row=0,column=0)
+       	    self.right.bind("<Button-1>", self.rightClicked)
+       	    
+       	    self.myParent = parent  
+       	    self.myContainer1 = Frame(parent)
+       	    self.myContainer1.pack()
+       	    self.left = Button(self.myContainer1)
+       	    self.left.configure(text="left", background= "green")
+       	    self.left.grid(row=0,column=1)
+       	    self.left.bind("<Button-1>", self.leftClicked)
+       	    
+       	    
        	    
        	    
 
@@ -64,8 +82,18 @@ class MyApp:
 	def downClicked(self, event):   
 	   global oval
 	   global player
-	   drawpad.move(player,0,20)     
-		
+	   drawpad.move(player,0,20) 
+	   
+	def rightClicked(self, event):   
+	   global oval
+	   global player
+	   drawpad.move(player,20,0)     
+		     
+	def leftClicked(self, event):   
+	   global oval
+	   global player
+	   drawpad.move(player,-20,0)     
+		     	
 
 app = MyApp(root)
 root.mainloop()
