@@ -16,6 +16,49 @@ drawpad = Canvas(root, width=800,height=600, background='white')
 player = drawpad.create_oval(390,580,410,600, fill="red")
 
 # Create your "enemies" here, before the class
+circle = drawpad.create_oval(10, 10, 50, 50, fill='green')
+rect = drawpad.create_rectangle(10,200,50,250)
+oval = drawpad.create_oval(10,460,50,500, fill='blue')
+
+direction = 1
+def animate():
+    global direction
+    x1, y1, x2, y2 = drawpad.coords(circle)
+    if x2 > drawpad.winfo_width(): 
+        direction = - 1
+    elif x1 < 0:
+        direction = 1
+    drawpad.move(circle,direction,0)
+    drawpad.after(1, animate)
+
+animate()
+
+def animate2():
+    global direction
+    x1, y1, x2, y2 = drawpad.coords(circle)
+    if x2 > drawpad.winfo_width(): 
+        direction = - 1
+    elif x1 < 0:
+        direction = 1
+    drawpad.move(rect,direction,0)
+    drawpad.after(1, animate2)
+
+animate2()
+
+def animate3():
+    global direction
+    x1, y1, x2, y2 = drawpad.coords(circle)
+    if x2 > drawpad.winfo_width(): 
+        direction = - 1
+    elif x1 < 0:
+        direction = 1
+    drawpad.move(rect,direction,0)
+    drawpad.after(1, animate3)
+
+animate3()
+
+
+
 
 
 class MyApp:
@@ -35,7 +78,7 @@ class MyApp:
        	    self.myContainer1.pack()
        	    self.down = Button(self.myContainer1)
        	    self.down.configure(text="down", background= "green")
-       	    self.down.grid(row=4,column=0)
+       	    self.down.grid(row=0,column=0)
        	    self.down.bind("<Button-1>", self.downClicked)
        	    
        	    self.myParent = parent  
