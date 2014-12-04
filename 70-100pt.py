@@ -35,7 +35,7 @@ animate()
 
 def animate2():
     global direction
-    x1, y1, x2, y2 = drawpad.coords(circle)
+    x1, y1, x2, y2 = drawpad.coords(rect)
     if x2 > drawpad.winfo_width(): 
         direction = - 1
     elif x1 < 0:
@@ -47,16 +47,38 @@ animate2()
 
 def animate3():
     global direction
-    x1, y1, x2, y2 = drawpad.coords(circle)
+    x1, y1, x2, y2 = drawpad.coords(rect)
     if x2 > drawpad.winfo_width(): 
         direction = - 1
     elif x1 < 0:
         direction = 1
     drawpad.move(rect,direction,0)
     drawpad.after(1, animate3)
-
 animate3()
 
+def animate4():
+    global direction
+    x1, y1, x2, y2 = drawpad.coords(oval)
+    if x2 > drawpad.winfo_width(): 
+        direction =  1
+    elif x1 < 0:
+        direction = -1
+    drawpad.move(oval,direction,0)
+    drawpad.after(1, animate4)
+
+animate4()
+
+def animate5():
+    global direction
+    x1, y1, x2, y2 = drawpad.coords(oval)
+    if x2 > drawpad.winfo_width(): 
+        direction =  1
+    elif x1 < 0:
+        direction = -1
+    drawpad.move(oval,direction,0)
+    drawpad.after(1, animate5)
+
+animate5()
 
 
 
